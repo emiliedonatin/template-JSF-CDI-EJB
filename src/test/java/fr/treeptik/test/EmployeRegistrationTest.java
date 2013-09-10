@@ -59,7 +59,7 @@ public class EmployeRegistrationTest {
         Employe newMember = new Employe();
         newMember.setNom("Jane Doe");
         newMember.setLogin("jane@mailinator.com");
-        memberRegistration.register(newMember);
+        memberRegistration.save(newMember);
         assertNotNull(newMember.getId());
         log.info(newMember.getLogin() + " was persisted with id " + newMember.getId());
     }

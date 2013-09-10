@@ -1,0 +1,49 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/templates/default.xhtml">
+
+	<ui:define name="body">
+		<h1>Liste des employés</h1>
+		<br />
+		<h:form class="form-horizontal">
+
+			<h:dataTable id="employees" var="employee" value="#{employeMB.dataModel}"
+				style="width: 10%">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Id" />
+					</f:facet>
+					<h:outputText value="#{employeMB.employe.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nom" />
+					</f:facet>
+					<h:outputText value="#{employeMB.employe.nom}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Prenom" />
+					</f:facet>
+					<h:outputText value="#{employeMB.employe.prenom}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="ACTION" />
+					</f:facet>
+					<h:commandLink action="#{employeMB.delete()}" value="Supprimer" />
+				</h:column>
+
+
+			</h:dataTable>
+			<br />
+			<br />
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>
